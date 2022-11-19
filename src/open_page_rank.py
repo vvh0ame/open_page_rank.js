@@ -1,8 +1,7 @@
 from requests import get
 
-
 class OpenPageRank:
-	def __init__(self, api_key: str):
+	def __init__(self, api_key: str) -> None:
 		self.api = "https://openpagerank.com/api"
 		self.api_key = api_key
 		self.headers = {
@@ -11,7 +10,7 @@ class OpenPageRank:
 		}
 
 
-	def get_page_rank(self, domain: str):
+	def get_page_rank(self, domain: str) -> dict:
 		return get(
 			f"{self.api}/v1.0/getPageRank?domains[]={domain}",
 			headers=self.headers).json()
